@@ -1,0 +1,27 @@
+<%= form_with(scope: :reaction, url: reactions_path, class: 'reaction-form disabled-default-ajax-form mb-0', local: false) do |form| %>
+  <%= form.hidden_field :reactionable_type, value: reactionable.class.name %>
+  <%= form.hidden_field :reactionable_id, value: reactionable.id %>
+
+  <div class="d-flex justify-content-between align-items-center mt-1">
+    <%= button_tag name: 'reaction[code]', value: :thumbs_up, class: 'reaction-action' do %>
+      <%= image_pack_tag 'media/images/emoji/unicode/1f44d.png', title: 'thumbs_up', class: 'reaction-icon' %>
+    <% end %>
+    <%= button_tag name: 'reaction[code]', value: :thumbs_down, class: 'reaction-action' do %>
+      <%= image_pack_tag 'media/images/emoji/unicode/1f44e.png', title: 'thumbs_down', class: 'reaction-icon' %>
+    <% end %>
+    <%= button_tag name: 'reaction[code]', value: :heart, class: 'reaction-action' do %>
+      <%= image_pack_tag 'media/images/emoji/unicode/2764.png', title: 'heart', class: 'reaction-icon' %>
+    <% end %>
+    </div>
+    <div class="d-flex justify-content-between align-items-center mt-3">
+    <%= button_tag name: 'reaction[code]', value: :exclamation, class: 'reaction-action' do %>
+      <%= image_pack_tag 'media/images/emoji/unicode/2757.png', title: 'exclamation', class: 'reaction-icon' %>
+    <% end %>
+    <%= button_tag name: 'reaction[code]', value: :question, class: 'reaction-action' do %>
+      <%= image_pack_tag 'media/images/emoji/unicode/2753.png', title: 'question', class: 'reaction-icon' %>
+    <% end %>
+    <%= button_tag name: 'reaction[code]', value: :interrobang, class: 'reaction-action' do %>
+      <%= image_pack_tag 'media/images/emoji/unicode/2049.png', title: 'interrobang', class: 'reaction-icon' %>
+    <% end %>
+  </div>
+<% end %>

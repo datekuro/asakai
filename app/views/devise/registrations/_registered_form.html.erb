@@ -1,0 +1,28 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <div class="card mt-0">
+    <div class="card-body">
+      <div class="form-group">
+        <%= f.label :nickname %>
+        <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, autocomplete: "email", class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+      </div>
+      <%= render "devise/shared/error_messages", resource: resource %>
+    </div>
+
+    <div class="card-footer justify-content-center actions" style="display:block">
+      <%= f.submit "Sign up", class: 'btn btn-primary btn-block' %>
+      <ul class="list-unstyled">
+        <li><%= link_to "ログインはこちら", new_session_path(resource_name) %></li>
+      </ul>
+    </div>
+  </div>
+<% end %>

@@ -1,15 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html class="">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Asakai</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
 
   <body>
+    <%= render 'shared/flash' %>
+    <div class="container">
     <%= yield %>
+    </div>
+    <%= javascript_pack_tag 'application' %>
   </body>
 </html>

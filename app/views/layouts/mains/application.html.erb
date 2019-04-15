@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html class="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Asakai</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="sidebar d-lg-none" data-color="green" data-background-color="white">
+        <div class="logo text-center">
+          <%= link_to 'Asakai', root_path, class: 'text-dark' %>
+        </div>
+
+        <div class="sidebar-wrapper">
+          <div class="p-4">
+            <%= form_with(url: root_path, method: :get, data: {remote: false}, class: 'main-search-form') do |f| %>
+              <%= f.text_field :published_date, value: params[:published_date].presence, class: 'form-control mr-sm-2', placeholder: '日付で探す' %>
+              <div class="btn-sm-block">
+                <button class="btn btn-outline-success btn-block my-2" type="submit">Search</button>
+              </div>
+            <% end %>
+          </div>
+
+          <ul class="nav">
+            <li class="nav-item">
+              <%= link_to 'タスク追加', new_article_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'マイタスク一覧', articles_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '紹介する', new_user_invitation_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'プロフィール設定', profile_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item text-center mt-5">
+              <%= link_to 'サインアウト', destroy_user_session_path, class: 'nav-link text-white bg-danger' %>
+            </li>
+          </ul>
+        </div>
+        <div class="sidebar-background"></div>
+      </div>
+
+      <div class="main-panel">
+        <header>
+          <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top">
+            <div class="container-fluid">
+              <div class="navbar-wrapper">
+                <%= link_to 'Asakai', root_path, class: 'navbar-brand mr-0 mr-md-2' %>
+              </div>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="navbar-toggler-icon icon-bar"></span>
+                <span class="navbar-toggler-icon icon-bar"></span>
+                <span class="navbar-toggler-icon icon-bar"></span>
+              </button>
+              <div class="collapse navbar-collapse justify-content-end">
+                <ul class="navbar-nav flex-row ml-md-auto">
+                  <li class="nav-item text-nowrap d-none d-lg-block">
+                    <%= link_to 'タスク追加', new_article_path, class: 'nav-link' %>
+                  </li>
+                  <li class="nav-item dropdown d-none d-lg-block">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fa fa-lg fa-cog text-dark" aria-hidden="true"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <%= link_to 'マイタスク一覧', articles_path, class: 'dropdown-item' %>
+                      <div class="dropdown-divider"></div>
+                      <%= link_to '紹介する', new_user_invitation_path, class: 'dropdown-item' %>
+                      <%= link_to 'プロフィール設定', profile_path, class: 'dropdown-item' %>
+                      <div class="dropdown-divider"></div>
+                      <%= link_to 'サインアウト', destroy_user_session_path, class: 'dropdown-item' %>
+                    </div>
+                  </li>
+                </ul>
+
+                <div class="navbar-form d-none d-lg-block">
+                  <%= form_with(url: root_path, method: :get, data: {remote: false}, class: 'form-inline my-2 my-lg-0 main-search-form') do |f| %>
+                    <%= f.text_field :published_date, value: params[:published_date].presence, class: 'form-control mr-sm-2', placeholder: '日付で探す' %>
+                    <div class="btn-sm-block">
+                      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </header>
+
+        <div class="container-fluid">
+          <div class="row">
+            <main role="main" class="col">
+              <%= yield %>
+            </main>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%= javascript_pack_tag 'application' %>
+  </body>
+</html>

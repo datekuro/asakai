@@ -1,0 +1,8 @@
+<p>Welcome <%= @email %>!</p>
+
+<p>
+下記URLにアクセスすることで、メールアドレスの確認が完了致します。<br>
+まだ登録は完了しておりませんので、ご注意ください。
+</p>
+
+<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>

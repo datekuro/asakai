@@ -30,17 +30,22 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'devise'
+gem 'devise_invitable'
 gem 'attr_encrypted'
 gem 'config'
 gem 'active_decorator'
 gem 'kaminari'
 gem 'paranoia'
 gem 'paranoia_uniqueness_validator'
+gem 'aasm'
+gem 'redcarpet'
+gem 'coderay'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
+  gem 'spring-commands-rspec'
   gem 'factory_bot_rails'
   gem 'pry-rails'
   gem 'pry-byebug'
@@ -74,6 +79,8 @@ group :test do
   gem 'database_cleaner'
   gem 'active_decorator-rspec'
   gem 'accept_values_for'
+  gem 'shoulda-matchers'
+  gem 'rails-controller-testing'
   gem 'simplecov-rcov', require: false
 end
 

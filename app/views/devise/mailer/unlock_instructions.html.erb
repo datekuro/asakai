@@ -1,0 +1,8 @@
+<p>Hello <%= @resource.email %>!</p>
+
+<p>
+アカウントがロックされました。<br>
+ロックを解除する場合は下のリンクをクリックしてください
+</p>
+
+<p><%= link_to 'Unlock my account', unlock_url(@resource, unlock_token: @token) %></p>

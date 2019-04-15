@@ -1,0 +1,27 @@
+ja:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'バリデーションに失敗しました: %{errors}'
+        restrict_dependent_destroy:
+          has_one: "%{record}が存在しているので削除できません"
+          has_many: "%{record}が存在しているので削除できません"
+    models:
+      article: 記事
+      user: ユーザー
+    attributes:
+      article:
+        todo: タスク
+        problem: 困っていること
+        shared_information: 共有事項
+        over_work: 残業
+        status: 状態
+        status/draft: 下書き
+        status/publish: 公開
+        published_on: 公開日
+      user:
+        nickname: ニックネーム
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認）
+        current_password: 現在のパスワード

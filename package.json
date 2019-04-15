@@ -2,9 +2,26 @@
   "name": "asakai",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "^4.0.2"
+    "@rails/webpacker": "^4.0.2",
+    "bootstrap-select": "^1.13.10",
+    "core-js": "3",
+    "flatpickr": "^4.5.7",
+    "jquery": "^3.4.0",
+    "material-dashboard": "^2.1.0",
+    "popper.js": "^1.15.0",
+    "rails-ujs": "^5.2.3"
   },
   "devDependencies": {
-    "webpack-dev-server": "^3.2.1"
+    "babel-core": "^6.26.3",
+    "babel-loader": "8",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "clean-webpack-plugin": "^2.0.2",
+    "css-loader": "^2.1.1",
+    "import-glob-loader": "^1.1.0",
+    "mini-css-extract-plugin": "^0.6.0",
+    "sass-loader": "^7.1.0",
+    "webpack-dev-server": "^3.2.1",
+    "webpack-merge": "^4.2.1"
   }
 }

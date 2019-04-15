@@ -1,0 +1,10 @@
+<div class="list-group-item list-group-item-action pr-0">
+  <div class="d-flex w-100 justify-content-end align-items-center">
+    <small><%= comment.created_at.strftime('%F %H:%M')%></small>
+    <%= link_to_if comment.is_mine?(current_user), '<i class="fa fa-lg fa-trash-o ml-1 text-danger" aria-hidden="true"></i>'.html_safe, article_comment_path(comment.articles.first, comment), method: :delete, data: { confirm: '削除しますか？', dismiss: 'alert' }, class: 'ml-2' %>
+  </div>
+  <p class="mb-1">
+    <%= simple_format comment.body %>
+  </p>
+  <small class="float-right"><%= comment.display_name %></small>
+</div>

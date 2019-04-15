@@ -1,0 +1,12 @@
+<div class="reaction-area d-flex">
+  <a tabindex="0" class="reaction-icon-action text-dark" role="button" data-toggle="popover" data-trigger="focus" title="add reactions" data-placement="top" data-custom_id="<%= "reaction-list-#{reactionable.class.name}-#{reactionable.id}" %>">
+    <i class="material-icons">sentiment_satisfied_alt</i>
+  </a>
+  <div class="" id="<%= "reaction-result-list-#{reactionable.class.name}-#{reactionable.id}" %>">
+    <%= render partial: 'reactions/reaction_list', collection: reactionable.grouped_active_reactions, as: :grouped_reaction %>
+  </div>
+
+  <div id="<%= "reaction-list-#{reactionable.class.name}-#{reactionable.id}" %>" class="d-none">
+    <%= render partial: 'reactions/form', locals: {reactionable: reactionable} %>
+  </div>
+</div>

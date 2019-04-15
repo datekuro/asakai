@@ -1,0 +1,34 @@
+<div class="row justify-content-around">
+  <% @articles.each do |article| %>
+  <div class="col-md-6 align-self-stretch row">
+    <div class="card">
+        <div class="card-header card-header-text card-header-info">
+          <div class="float-right py-2">
+            <%= link_to_if(article.is_mine?(current_user), '<i class="fa fa-lg fa-pencil text-dark" aria-hidden="true"></i>'.html_safe, edit_article_path(article)) {} %>
+            <%= link_to_if(article.is_mine?(current_user), '<i class="fa fa-lg fa-trash-o text-danger" aria-hidden="true"></i>'.html_safe, article_path(article), method: :delete, data: {confirm: 'OK?'}) {} %>
+          </div>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title text-body">タスク</h4>
+          <p><%= markdown(article.todo).html_safe %></p>
+
+          <h4 class="card-title text-body">困っていること</h4>
+          <p><%= markdown(article.problem).html_safe if article.problem.present? %></p>
+
+          <h4 class="card-title text-body">共有しておくこと</h4>
+          <p><%= markdown(article.shared_information).html_safe if article.shared_information.present? %></p>
+
+          <h4 class="card-title text-body">残業</h4>
+          <p><%= article.over_work %></p>
+
+          <div class="stats d-flex">
+            <i class="material-icons mr-2">access_time</i> <%= article.published_on %>
+          </div>
+        </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+<div class="d-flex justify-content-center align-items-center">
+  <%= paginate @articles, window: 2 %>
+</div>

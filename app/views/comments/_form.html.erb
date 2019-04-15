@@ -1,0 +1,5 @@
+<%= form_with(scope: :comment, url: article_comments_path(article), class: 'form-inline my-2 my-lg-0 comment-form disabled-default-ajax-form', local: false) do |form| %>
+  <%= form.hidden_field :user_id, value: user.try(:id) %>
+  <%= form.text_area :body, class: 'form-control' %>
+  <%= form.submit(value: 'コメントする', class: 'btn btn-primary', data: {disable_with: '投稿中...'}) %>
+<% end %>
