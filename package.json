@@ -6,7 +6,7 @@
     "bootstrap-select": "^1.13.10",
     "core-js": "3",
     "flatpickr": "^4.5.7",
-    "jquery": "^3.4.0",
+    "jquery": "^3.5.0",
     "material-dashboard": "^2.1.0",
     "popper.js": "^1.15.0",
     "rails-ujs": "^5.2.3"
